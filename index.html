@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKRINNA MOVIES</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b0f;
+      color: white;
+    }
+
+    header {
+      background: #111116;
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #24242c;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #e50914;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #e50914;
+    }
+
+    .hero {
+      min-height: 430px;
+      padding: 80px 6%;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(to right, #0b0b0f 20%, rgba(11,11,15,.75), rgba(11,11,15,.25)),
+        linear-gradient(135deg, #271116, #101015);
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: #e50914;
+    }
+
+    .hero p {
+      color: #c5c5c5;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 24px;
+      background: #e50914;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #b80710;
+    }
+
+    .section {
+      padding: 40px 6%;
+    }
+
+    .section-title {
+      font-size: 25px;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      margin-bottom: 30px;
+    }
+
+    .search-box input {
+      width: 100%;
+      max-width: 500px;
+      padding: 14px 18px;
+      background: #17171e;
+      border: 1px solid #30303a;
+      color: white;
+      border-radius: 7px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 22px;
+    }
+
+    .movie {
+      background: #15151b;
+      border-radius: 9px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .movie:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.4);
+    }
+
+    .poster {
+      height: 250px;
+      background: linear-gradient(145deg, #25252e, #101015);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 55px;
+    }
+
+    .movie-info {
+      padding: 15px;
+    }
+
+    .movie-info h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .movie-info p {
+      color: #999;
+      font-size: 13px;
+    }
+
+    .watch {
+      display: block;
+      text-align: center;
+      margin-top: 12px;
+      padding: 9px;
+      background: #e50914;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 30px 6%;
+      text-align: center;
+      background: #111116;
+      color: #777;
+      border-top: 1px solid #24242c;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 400px;
+        padding: 60px 6%;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .movies {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .poster {
+        height: 210px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">SKRINNA <span>MOVIES</span></div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#movies">Movies</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to <span>SKRINNA MOVIES</span></h1>
+
+      <p>
+        Discover. Watch. Enjoy.
+        Your world of movies starts here.
+        Explore movies, discover new stories and enjoy your entertainment.
+      </p>
+
+      <a href="#movies" class="btn">Explore Movies</a>
+    </div>
+  </section>
+
+  <section class="section" id="movies">
+
+    <h2 class="section-title">🎬 Popular Movies</h2>
+
+    <div class="search-box">
+      <input
+        type="text"
+        id="search"
+        placeholder="Search for a movie..."
+        onkeyup="searchMovies()"
+      >
+    </div>
+
+    <div class="movies" id="movieList">
+
+      <div class="movie">
+        <div class="poster">🎬</div>
+        <div class="movie-info">
+          <h3>Movie One</h3>
+          <p>Action • 2026</p>
+          <a href="#" class="watch">Watch Now</a>
+        </div>
+      </div>
+
+      <div class="movie">
+        <div class="poster">🍿</div>
+        <div class="movie-info">
+          <h3>Movie Two</h3>
+          <p>Drama • 2026</p>
+          <a href="#" class="watch">Watch Now</a>
+        </div>
+      </div>
+
+      <div class="movie">
+        <div class="poster">🎥</div>
+        <div class="movie-info">
+          <h3>Movie Three</h3>
+          <p>Adventure • 2026</p>
+          <a href="#" class="watch">Watch Now</a>
+        </div>
+      </div>
+
+      <div class="movie">
+        <div class="poster">⭐</div>
+        <div class="movie-info">
+          <h3>Movie Four</h3>
+          <p>Comedy • 2026</p>
+          <a href="#" class="watch">Watch Now</a>
+        </div>
+      </div>
+
+      <div class="movie">
+        <div class="poster">🔥</div>
+        <div class="movie-info">
+          <h3>Movie Five</h3>
+          <p>Thriller • 2026</p>
+          <a href="#" class="watch">Watch Now</a>
+        </div>
+      </div>
+
+      <div class="movie">
+        <div class="poster">❤️</div>
+        <div class="movie-info">
+          <h3>Movie Six</h3>
+          <p>Romance • 2026</p>
+          <a href="#" class="watch">Watch Now</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2 class="section-title">About SKRINNA MOVIES</h2>
+
+    <p style="color:#aaa; line-height:1.8; max-width:700px;">
+      SKRINNA MOVIES is a movie platform created to help users
+      discover and explore movies in a simple and modern experience.
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2026 SKRINNA MOVIES. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function searchMovies() {
+      const input = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+      const movies = document.querySelectorAll(".movie");
+
+      movies.forEach(function(movie) {
+        const title = movie
+          .querySelector("h3")
+          .textContent
+          .toLowerCase();
+
+        if (title.includes(input)) {
+          movie.style.display = "";
+        } else {
+          movie.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+  </html>
